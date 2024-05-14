@@ -9,38 +9,27 @@ Module Program
         Const ID_NB = 2
         Public USI()
         Public Function UsiLoop() As Integer
-            Dim cmd As String = Console.ReadLine()
-            Dim cmds = Split(cmd)
-            While (cmds(0) <> "")
+            Dim cmd As String = "Default"
+            While (cmd <> "")
+                cmd = Console.ReadLine()
+                Dim cmds = Split(cmd)
                 If (cmds(0).Equals("quit")) Then
                     Return 0
-
                 ElseIf (cmds(0).Equals("usi")) Then
                     SendId(ID_NAME)
                     SendId(ID_AUTHOR)
                     SendUsiok()
-
                 ElseIf (cmds(0).Equals("isready")) Then
                     SendReadyOk()
-
                 ElseIf (cmds(0).Equals("usinewgame")) Then
-                    cmd = Console.ReadLine()
-                    cmds = Split(cmd)
                     Continue While
-
                 ElseIf (cmds(0).Equals("position")) Then
-                    cmd = Console.ReadLine()
-                    cmds = Split(cmd)
                     Continue While
-
                 ElseIf (cmds(0).Equals("go")) Then
                     SendBestmove()
-
                 Else
                     Console.WriteLine("invalid comannd:")
                 End If
-                cmd = Console.ReadLine()
-                cmds = Split(cmd)
             End While
             Return 0
 
